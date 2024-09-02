@@ -14,6 +14,7 @@ module.exports = {
         'tableColor-pink':'#FFC3D0',
         
         
+        
       },
       fontFamily: {
         'poppins': ['Poppins', 'sans-serif'],

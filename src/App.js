@@ -17,6 +17,10 @@ import Navbarsec from "./components/Navbarsec/Navbarsec";
 import { useState } from "react";
 import Sidebar from "./components/Sidebar/Sidebar";
 import FooterBar from './components/FooterBar/FooterBar'
+import Profile from './pages/Profile/page'
+import Rules from './pages/Rules/page'
+import ChangePassword from './pages/ChangePassword/page'
+import StakeSetting from './pages/StakeSetting/page'
 
 function App() {
   const [burgerState, setBurgerState] = useState(true);
@@ -45,6 +49,10 @@ function App() {
           <Route path="/kabaddi" element={<Kabaddi />} />
           <Route path="/politics" element={<Politics />} />
           <Route path="/events" element={<Events />} />
+          <Route path="/profile" element={<Profile />} />
+          <Route path="/stake_setting" element={<StakeSetting/>} />
+          <Route path="/rules" element={<Rules/>} />
+          <Route path="/change_password" element={<ChangePassword/>} />
         </Routes>
         
       </div>

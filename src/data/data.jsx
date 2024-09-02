@@ -12,6 +12,11 @@ import { GiClick } from "react-icons/gi";
 import { SiMultisim } from "react-icons/si";
 import { GiIceSpellCast } from "react-icons/gi";
 
+
+
+
+
+
 export const navbarLinks = [
     { name: "Home", href: "/dashboard" ,icon:<IoMdHome/> },
     { name: "INplay", href: "/inplay" ,icon:<IoMdPlay/>},
@@ -26,6 +31,21 @@ export const navbarLinks = [
     { name: " I Casino", href: "/i-Casino" ,icon:<GiIceSpellCast/>},
     { name: "Multi Market", href: "/events" ,icon:<SiMultisim/>},
    
+  ];
+ export const initialAmounts = [1000, 5000, 10000, 25000, 50000, 750000, 100000, 200000, 500000];
+  export const dropdownItems = [
+    { label: 'Profile', link: '/profile' },
+    { label: 'Account Statement', link: '/' },
+    { label: 'Stake Setting', link: '/stake_setting' },
+    { label: 'Profit Loss', link: '/' },
+    { label: 'Unsettled Bets', link: '/' },
+    { label: 'Change Password', link: '/change_password' },
+    { label: 'Rules', link: '/rules' },
+    { label: 'Signout', link: '/' }
+  ];
+  export const coinsItems = [
+    { label: 'Balance:', count:'0' },
+    { label: 'Exposure:', count:'0' }
   ];
   export const sideBarLinks = [
     {

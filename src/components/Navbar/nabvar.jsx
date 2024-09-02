@@ -5,19 +5,35 @@ import { FaLink } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { MdArrowBackIos, MdArrowForwardIos } from "react-icons/md";
-import { sideBarLinks } from "../../data/data";
+import { sideBarLinks, coinsItems, dropdownItems } from "../../data/data";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faUser, faChevronDown } from '@fortawesome/free-solid-svg-icons';
+import { GiTwoCoins } from "react-icons/gi";
+import { RiLogoutCircleRLine } from "react-icons/ri";
+
+
 
 const Navbar = ({ setBurgerState, burgerState }) => {
   const [showModal, setShowModal] = useState(false);
   const [formType, setFormType] = useState("login");
+  const [isOpen, setIsOpen] = useState(false);
+  const [coin, setCoin] = useState(false);
   
+  // const toggleDropdown = () => {
+  //   setIsOpen(!isOpen);
+  // };
   const [openDropdown, setOpenDropdown] = useState(null);
   const [openSubDropdown, setOpenSubDropdown] = useState(null);
 
   const toggleDropdown = (index) => {
     setOpenDropdown(openDropdown === index ? null : index);
-    setOpenSubDropdown(null); // Close sub-dropdown when main dropdown toggles
+    setOpenSubDropdown(null); 
+    setIsOpen(!isOpen);
   };
+  const coinDropdown=()=>{
+    setCoin(!coin)
+
+  }
 
   const toggleSubDropdown = (index) => {
     setOpenSubDropdown(openSubDropdown === index ? null : index);
@@ -41,6 +57,7 @@ const Navbar = ({ setBurgerState, burgerState }) => {
       [position]: !prevState[position],
     }));
   };
+ 
 
   const handleCloseModal = () => setShowModal(false);
 
@@ -171,19 +188,91 @@ const Navbar = ({ setBurgerState, burgerState }) => {
             </button>
           </div>
           {localStorage.getItem("UserEmail")? <div className="space-x-2 flex items-center">
+            <div className="relative inline-block text-left">
+      <div>
+        <button
+          onClick={coinDropdown}
+          className="inline-flex justify-between w-full rounded-md border font-poppins border-yellow-600 font-[600] shadow-sm px-2 py-2 text-[15px] bg-custom-yellow-background text-sm text-gray-700 focus:outline-none"
+        >
+          <GiTwoCoins icon={faUser} className="mr-2 text-[20px] text-yellow-300" />
+          0
+          <FontAwesomeIcon icon={faChevronDown} className="ml-2" />
+        </button>
+      </div>
 
-<button
-  onClick={() => handleOpenModal("login")}
-  className="bg-custom-yellow-background hover:opacity-40 font-[400] text-[14px] px-4 py-1.5 rounded-[3px] ml-auto"
->
-  421.09
-</button>
-<button
-  onClick={() => handleOpenModal("register")}
-  className="bg-custom-yellow-background hover:opacity-40 font-[400] text-[14px] px-4 py-1.5 rounded-[3px] ml-auto"
->
-  Demo1006
-</button>
+      {/* Dropdown menu */}
+      {coin && (
+        <div className="origin-top-right absolute -right-4 mt-2 w-44 rounded-md text-white shadow-lg bg-custom-blue-background border border-white ring-1 ring-black ring-opacity-5 focus:outline-none">
+          <div className="bg-white m-3">
+          {coinsItems.map((item, index) => (
+            <div key={index} className="border-b bottom-1">
+               <p
+                
+              
+                className={`block px-2 py-1  ${index === coinsItems.length - 1 ? 'text-green-700' : ''} text-[16px] font-[600] font-poppins text-black  hover:bg-gray-100`}
+              >
+                {item.label}
+              </p>
+              <p
+              className="block px-4  text-[12px] font-[400] italic font-poppins text-black  hover:bg-gray-100"
+            >
+              {item.count}
+            </p>
+            </div>
+              
+            ))}
+
+
+
+
+
+          </div>
+        </div>
+      )}
+    </div>
+<div className="relative inline-block text-left">
+      <div>
+        <button
+          onClick={toggleDropdown}
+          className="inline-flex justify-between w-full items-center rounded-md border font-poppins border-yellow-600 font-[600] shadow-sm px-2 py-2 text-[15px] bg-custom-yellow-background text-sm text-black focus:outline-none"
+        >
+          <FontAwesomeIcon icon={faUser} className="mr-2" />
+          Parkerexch
+          <FontAwesomeIcon icon={faChevronDown} className="ml-2 " />
+        </button>
+      </div>
+
+      {/* Dropdown menu */}
+      {isOpen && (
+        <div className="origin-top-right absolute -right-4 mt-2 w-44 rounded-md text-white shadow-lg bg-custom-blue-background border border-white ring-1 ring-black ring-opacity-5 focus:outline-none">
+          <div className="">
+          {dropdownItems.map((item, index) => (
+            
+               <Link 
+                key={index}
+                to={item.link}
+
+                // onClick={(event) => handleClick(event, item.link)}
+                className={`block px-4 py-2 text-[13px] ${index === dropdownItems.length - 1 ? 'border border-white' : ''} font-[400]   font-poppins text-white hover:text-black hover:bg-gray-100`}
+              > 
+               <div  onClick={toggleDropdown} className="flex items-center">
+                 {index === dropdownItems.length - 1 && (
+               
+                <RiLogoutCircleRLine className="mr-2 text-[18px] hover:text-black"
+                />
+              )}
+                {item.label}
+
+              
+               </div>
+             
+                
+              </Link>
+            ))}
+          </div>
+        </div>
+      )}
+    </div>
 <button
   className="text-white sm:hidden block text-[25px]"
   onClick={() => toggleDrawer("right")}
