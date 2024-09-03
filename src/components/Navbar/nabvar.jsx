@@ -19,9 +19,7 @@ const Navbar = ({ setBurgerState, burgerState }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [coin, setCoin] = useState(false);
   
-  // const toggleDropdown = () => {
-  //   setIsOpen(!isOpen);
-  // };
+
   const [openDropdown, setOpenDropdown] = useState(null);
   const [openSubDropdown, setOpenSubDropdown] = useState(null);
 
@@ -29,14 +27,24 @@ const Navbar = ({ setBurgerState, burgerState }) => {
     setOpenDropdown(openDropdown === index ? null : index);
     setOpenSubDropdown(null); 
     setIsOpen(!isOpen);
+    setCoin(false)
+    setShowModal(false)
   };
   const coinDropdown=()=>{
     setCoin(!coin)
+    setIsOpen(false)
+    setShowModal(false)
 
   }
 
   const toggleSubDropdown = (index) => {
     setOpenSubDropdown(openSubDropdown === index ? null : index);
+    setIsOpen(false)
+    setCoin(false)
+    setShowModal(false)
+
+    
+    
   }
 
   const [openDrawer, setOpenDrawer] = useState({
@@ -192,7 +200,7 @@ const Navbar = ({ setBurgerState, burgerState }) => {
       <div>
         <button
           onClick={coinDropdown}
-          className="inline-flex justify-between w-full rounded-md border font-poppins border-yellow-600 font-[600] shadow-sm px-2 py-2 text-[15px] bg-custom-yellow-background text-sm text-gray-700 focus:outline-none"
+          className="inline-flex justify-between w-full rounded-md border font-poppins border-yellow-600 font-[600] shadow-sm px-2 py-2 text-[15px] bg-custom-yellow-background text-sm text-black focus:outline-none"
         >
           <GiTwoCoins icon={faUser} className="mr-2 text-[20px] text-yellow-300" />
           0

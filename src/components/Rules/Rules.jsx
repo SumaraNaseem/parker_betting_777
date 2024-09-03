@@ -1,32 +1,22 @@
 import React, { useState } from 'react';
 import { IoIosNotificationsOff } from "react-icons/io";
-import {initialAmounts} from '../../data/data'
-const TabContent = ({ activeTab }) => {
-    switch (activeTab) {
-      case 1:
-        return <div>Content for Tab 1</div>;
-      case 2:
-        return <div>Content for Tab 2</div>;
-      case 3:
-        return <div>Content for Tab 3</div>;
-      case 4:
-        return <div>Content for Tab 4</div>;
-      case 5:
-        return <div>Content for Tab 5</div>;
-      case 6:
-        return <div>Content for Tab 6</div>;
-      case 7:
-        return <div>Content for Tab 7</div>;
-      case 8:
-        return <div>Content for Tab 8</div>;
-      case 9:
-        return <div>Content for Tab 9</div>;
-      case 10:
-        return <div>Content for Tab 10</div>;
-      default:
-        return <div>Select a tab</div>;
-    }
-  };
+import {initialAmounts ,tabContent} from '../../data/data'
+const tabLabels = [
+ 
+    { name: "Cricket"},
+    { name: "Football"},
+    { name: "Tennis"},
+    { name: "Live Casino"},
+    { name: "Cricket Casino"},
+    { name: "Election"},
+    { name: "Binary"},
+    { name: "General"},
+    { name: "100 Ball Rules Women"},
+
+];
+
+
+
 
 function Rules() {
     const [activeTab, setActiveTab] = useState(1);
@@ -50,29 +40,44 @@ function Rules() {
         <IoIosNotificationsOff />
         <p>Rules</p>
       </div>
-      <div className='bg-white py-7 px-2 flex justify-center items-center min-h-screen'>
-      <div className="w-full  ">
-      <div className="flex border-b border-gray-200">
-        {[...Array(10)].map((_, index) => (
-          <button
-            key={index}
-            className={`py-2 px-4 -mb-px font-medium text-sm border-b-2 ${
-              activeTab === index + 1
-                ? 'border-blue-500 text-blue-500'
-                : 'border-transparent text-gray-500'
-            }`}
-            onClick={() => setActiveTab(index + 1)}
-          >
-            Tab {index + 1}
-          </button>
-        ))}
-      </div>
-      <div className="p-4 bg-white border border-gray-200 rounded-lg mt-4">
-        <TabContent activeTab={activeTab} />
-      </div>
-    </div>
+      <div className='bg-white  px-2 overflow-scroll items-center '>
+      <div className="flex border-b lg:justify-center sm:justify-start   border-gray-200">
       
+        {tabLabels.map((label, index) => (
+            <button
+              key={index}
+              className={`my-2 px-2 text-[14px] whitespace-nowrap font-[400] font-poppins border-[#F1F1F1] border-r-[1px] -mb-px text-sm ${
+                activeTab === index + 1
+                  ? 'bg-custom-yellow-background text-black hover:border border-gray-400'
+                  : 'border-transparent text-gray-500'
+              }`}
+              onClick={() => setActiveTab(index + 1)}
+            >
+              {label.name}
+            </button>
+          ))}
+    
+        
+      </div>
+      <div className="px-2 bg-white my-2">
+      
+      {tabContent[activeTab - 1].map((item, index) => (
+  <div key={index} className=''>
+    <p className='text-[18.8px] font-[500] text-gray-700 font-ubuntu'>{item.category}</p>
+    {item.rules.map((rule, ruleIndex) => (
+      <p key={ruleIndex} className='text-[14px] font-[400] py-[2px]  px-1 font-poppins text-gray-700'>
+        {`${ruleIndex + 1}. ${rule}`}
+      </p>
+    ))}
+  </div>
+))}
+        
+       
+      </div>
+    
     </div>
+   
+      
     </div>
   );
 }

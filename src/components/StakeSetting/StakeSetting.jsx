@@ -40,6 +40,7 @@ function StakeSetting() {
             </React.Fragment>
           ))}
         </div>
+        
         <div className='grid grid-cols-2 gap-1'>
           {amounts.map((amount, index) => (
             <React.Fragment key={index}>
@@ -62,6 +63,9 @@ function StakeSetting() {
             </React.Fragment>
           ))}
         </div>
+        <div className='px-2 py-3 mt-1 text-center text-[16px] uppercase font-[700] font-ubuntu  bg-[#3E4B5B] text-white '>
+              Submit
+              </div>
       </div>
     </div>
     </div>

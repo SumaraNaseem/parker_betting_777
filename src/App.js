@@ -20,6 +20,9 @@ import FooterBar from './components/FooterBar/FooterBar'
 import Profile from './pages/Profile/page'
 import Rules from './pages/Rules/page'
 import ChangePassword from './pages/ChangePassword/page'
+import ProfitLoss from './pages/ProfitLoss/page'
+import ICasino from './pages/ICasino/page'
+
 import StakeSetting from './pages/StakeSetting/page'
 
 function App() {
@@ -51,8 +54,11 @@ function App() {
           <Route path="/events" element={<Events />} />
           <Route path="/profile" element={<Profile />} />
           <Route path="/stake_setting" element={<StakeSetting/>} />
+          <Route path="/profit_loss" element={<ProfitLoss/>} />
           <Route path="/rules" element={<Rules/>} />
+          <Route path="/i-casino" element={<ICasino/>} />
           <Route path="/change_password" element={<ChangePassword/>} />
+
         </Routes>
         
       </div>
