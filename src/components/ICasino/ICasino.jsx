@@ -63,30 +63,31 @@ function ICosino() {
   };
 
   return (
-    <div className="w-full mb-[53px] px-1">
+    <div className="w-full mb-[53px] mt-32 px-1">
       <div className="flex justify-center items-center px-2 bg-custom-yellow-background py-1 w-full">
         <p className="text-[16px] uppercase font-[700] font-ubuntu">I Casino</p>
       </div>
 
       <div className="text-white pt-3">
         {/* Tabs */}
-        <div className="flex border-t border-b justify-start w-[310px] lg:w-[1120px] overflow-y-auto scrollbar-hidden border-gray-200">
-          {tabLabels.map((label, index) => (
-            <button
-              key={index}
-              className={`relative uppercase px-2 py-2 lg:px-4 lg:py-4 text-[13px] lg:text-[14px] whitespace-nowrap font-[400] font-poppins border-r border-gray-300 text-sm ${activeTab === index + 1
-                ? 'bg-custom-yellow-background text-black'
-                : 'hover:text-black hover:bg-white'
-                }`}
-              onClick={() => setActiveTab(index + 1)}
-            >
-              {label.name}
-            </button>
-          ))}
-        </div>
+        <div className="flex border-t border-b justify-start w-full lg:w-[1100px] overflow-x-auto scrollbar-hidden border-gray-200">
+  {tabLabels.map((label, index) => (
+    <button
+      key={index}
+      className={`relative uppercase px-2 py-2 lg:px-4 lg:py-4 text-[13px] lg:text-[14px] whitespace-nowrap font-[400] font-poppins border-r border-gray-300 text-sm ${activeTab === index + 1
+        ? 'bg-custom-yellow-background text-black'
+        : 'hover:text-black hover:bg-white'
+        }`}
+      onClick={() => setActiveTab(index + 1)}
+    >
+      {label.name}
+    </button>
+  ))}
+</div>
+
 
         {/* Casino Tabs */}
-        <div className="flex border-t border-b justify-start w-[310px] lg:w-[1120px] overflow-y-auto scrollbar-hidden border-gray-200">
+        <div className="flex border-t border-b justify-start w-[310px] lg:w-[1100px] overflow-y-auto scrollbar-hidden border-gray-200">
           {tabCasinoLabels.map((label, index) => (
             <div key={index} className="flex justify-center items-center">
               <button
@@ -106,19 +107,20 @@ function ICosino() {
         </div>
 
         {/* Main Content */}
-        {/* <div className='max-w-full'> */}
-        <div className="grid grid-cols-3 lg:grid-cols-6 mt-1 py-2 px-1 bg-white gap-2">
+       
+        <div className="grid grid-cols-2 lg:grid-cols-6 mt-1 py-2 bg-white">
           {images.map((image, index) => (
-            <div key={index} className="relative group text-black">
-              <div className="h-[80px] w-[170px] text-black overflow-hidden">
+            <div key={index} className=" text-black">
+              <div className="h-[150px] w-full text-black overflow-hidden">
                 <img
                   src={image.src}
                   alt={image.label}
-                  className="h-full w-full object-cover"
+                  className="h-full w-[720px] px-2 py-2 object-cover"
                 />
+                 
               </div>
 
-               <div className="play-now bg-custom-yellow-background -mt-[10px] lg:mt-10">
+              <div className="play-now bg-custom-yellow-background mx-2 -mt-2">
                 <p className="text-[10px] text-white py-[5px] lg:px-[44px] px-[12px] font-bold whitespace-nowrap lg:text-[12px]">
                   PLAY NOW
                 </p>
@@ -129,7 +131,7 @@ function ICosino() {
 
       </div>
 
-      {/* </div> */}
+    
     </div>
   );
 }

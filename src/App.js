@@ -33,7 +33,7 @@ function App() {
       <div className="flex w-full">
         <Navbar setBurgerState={setBurgerState} burgerState={burgerState} />
       </div>
-      <Navbarsec />
+      {/* <Navbarsec /> */}
       <Routes>
         <Route path="/" element={<Home />} />
       </Routes>
