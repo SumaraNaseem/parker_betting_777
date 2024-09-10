@@ -22,8 +22,9 @@ import Rules from './pages/Rules/page'
 import ChangePassword from './pages/ChangePassword/page'
 import ProfitLoss from './pages/ProfitLoss/page'
 import ICasino from './pages/ICasino/page'
-
+import AccountStatement from './pages/AccountStatement/page'
 import StakeSetting from './pages/StakeSetting/page'
+import Unsettelbet from './pages/UnsetteldBet/page'
 
 function App() {
   const [burgerState, setBurgerState] = useState(true);
@@ -58,7 +59,9 @@ function App() {
           <Route path="/rules" element={<Rules/>} />
           <Route path="/i-casino" element={<ICasino/>} />
           <Route path="/change_password" element={<ChangePassword/>} />
+          <Route path="/unsettled_bets" element={<Unsettelbet/>} />
 
+          <Route path="/account_statement" element={<AccountStatement/>} />
         </Routes>
         
       </div>

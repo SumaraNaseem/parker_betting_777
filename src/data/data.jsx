@@ -262,10 +262,10 @@ export const navbarLinks = [
  export const initialAmounts = [1000, 5000, 10000, 25000, 50000, 750000, 100000, 200000, 500000];
   export const dropdownItems = [
     { label: 'Profile', link: '/profile' },
-    { label: 'Account Statement', link: '/' },
+    { label: 'Account Statement', link: '/account_statement' },
     { label: 'Stake Setting', link: '/stake_setting' },
     { label: 'Profit Loss', link: '/profit_loss' },
-    { label: 'Unsettled Bets', link: '/' },
+    { label: 'Unsettled Bets', link: '/unsettled_bets' },
     { label: 'Change Password', link: '/change_password' },
     { label: 'Rules', link: '/rules' },
     { label: 'Signout', link: '/' }

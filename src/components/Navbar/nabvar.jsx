@@ -71,7 +71,7 @@ const Navbar = ({ setBurgerState, burgerState }) => {
 
   const renderDrawer = (position) => (
     <div
-      className={`fixed z-50 sm:block md:hidden  mt-20 h-full ${
+      className={`fixed z-50 sm:block md:hidden  mt-20 lg:h-full ${
         openDrawer[position]
           ? `${
               position === "top"
@@ -93,7 +93,7 @@ const Navbar = ({ setBurgerState, burgerState }) => {
             }`
       }`}
       style={{
-        height: position === "top" || position === "bottom" ? "200px" : "100vh",
+        height: position === "top" || position === "bottom" ? "200px" : "100px",
         width: position === "left" || position === "right" ? "230px" : "100%",
       }}
     >

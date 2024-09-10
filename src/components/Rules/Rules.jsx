@@ -40,8 +40,8 @@ function Rules() {
         <IoIosNotificationsOff />
         <p>Rules</p>
       </div>
-      <div className='bg-white  px-2 overflow-scroll items-center '>
-      <div className="flex border-b lg:justify-center sm:justify-start   border-gray-200">
+      <div className='bg-white  px-2   items-center '>
+      <div className="flex border-b lg:justify-center sm:justify-start w-[300px]  max-w-full lg:w-full   overflow-y-auto scrollbar-hidden border-gray-200">
       
         {tabLabels.map((label, index) => (
             <button
