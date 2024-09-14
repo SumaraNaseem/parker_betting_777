@@ -63,14 +63,14 @@ function ICosino() {
   };
 
   return (
-    <div className="w-full mb-[53px] mt-32 px-1">
-      <div className="flex justify-center items-center px-2 bg-custom-yellow-background py-1 w-full">
+    <div className="w-full mb-[53px] px-1">
+      <div className="flex justify-center items-center px-2 bg-custom-yellow-background py-1 ">
         <p className="text-[16px] uppercase font-[700] font-ubuntu">I Casino</p>
       </div>
 
       <div className="text-white pt-3">
         {/* Tabs */}
-        <div className="flex border-t border-b justify-start w-full lg:w-[1100px] overflow-x-auto scrollbar-hidden border-gray-200">
+        <div className="flex border-t  justify-start w-[310px] min-w-full scrollbar-hidden overflow-scroll border-gray-200">
   {tabLabels.map((label, index) => (
     <button
       key={index}
@@ -87,7 +87,7 @@ function ICosino() {
 
 
         {/* Casino Tabs */}
-        <div className="flex border-t border-b justify-start w-[310px] lg:w-[1100px] overflow-y-auto scrollbar-hidden border-gray-200">
+        <div className="flex border-t border-b justify-start w-[310px] min-w-full overflow-y-auto scrollbar-hidden border-gray-200">
           {tabCasinoLabels.map((label, index) => (
             <div key={index} className="flex justify-center items-center">
               <button
@@ -109,13 +109,13 @@ function ICosino() {
         {/* Main Content */}
        
         <div className="grid grid-cols-2 lg:grid-cols-6 mt-1 py-2 bg-white">
-          {images.map((image, index) => (
+         {images.map((image, index) => (
             <div key={index} className=" text-black">
-              <div className="h-[150px] w-full text-black overflow-hidden">
+              <div className="h-[150px]  text-black overflow-hidden">
                 <img
                   src={image.src}
                   alt={image.label}
-                  className="h-full w-[720px] px-2 py-2 object-cover"
+                  className="h-full w-[700px] px-2 py-2 object-cover"
                 />
                  
               </div>
@@ -126,7 +126,7 @@ function ICosino() {
                 </p>
               </div> 
             </div>
-          ))}
+          ))} 
         </div>
 
       </div>
